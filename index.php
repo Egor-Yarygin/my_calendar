@@ -63,14 +63,6 @@
         </div>
     </div>
 
-    <!-- <script>
-    // Обработчик изменения выбранного значения в списке
-    document.getElementById("task-list").addEventListener("change", function() {
-      var selectedOption = this.options[this.selectedIndex].value;
-      // Переход на выбранный список задач
-      window.location.href = selectedOption + ".html";
-    });
-  </script> -->
 </body>
 
 </html>
