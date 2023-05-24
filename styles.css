@@ -1,0 +1,29 @@
+.main{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:auto;
+    height:auto;
+    border:0.5vh solid black;
+    padding:2vh;
+    gap:2vh;
+}
+
+.add-task{
+    display:flex;
+    flex-direction: column;
+    width:50vw;
+    height:50vh;
+    border:0.5vh solid black;
+    padding:2vh;
+}
+
+.task-list{
+    display:flex;
+    flex-direction: column;
+    width:50vw;
+    height:50vh;
+    border:0.5vh solid black;
+    padding:2vh;
+}
+
