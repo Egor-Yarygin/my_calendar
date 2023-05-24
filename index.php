@@ -1,3 +1,7 @@
+<?php
+require 'task_list.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +24,7 @@
         </div>
         <div class="add-task">
 
-            <form>
+            <form action="add_task.php" method="POST">
                 <label for="theme">Тема:</label>
                 <input type="text" id="theme" name="theme" required><br>
 
@@ -59,14 +63,31 @@
                     <option value="completed-tasks">Выполненные задачи</option>
                     <option value="tasks-on-date">Задачи на конкретную дату</option>
                 </select>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Тип</th>
+                            <th>Тема</th>
+                            <th>Место</th>
+                            <th>Дата и время</th>
+                            <th>Длительность</th>
+                            <th>Комментарий</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($tasks as $task) : ?>
+                            <tr>
+                                <td><?php echo $task['type']; ?></td>
+                                <td><?php echo $task['theme']; ?></td>
+                                <td><?php echo $task['location']; ?></td>
+                                <td><?php echo $task['datetime']; ?></td>
+                                <td><?php echo $task['duration']; ?></td>
+                                <td><?php echo $task['comment']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-
 </body>
-
-</html>
-</body>
-
-</html>
-bbbboba
