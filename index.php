@@ -42,7 +42,7 @@
                 <input type="text" id="duration" name="duration"><br>
 
                 <label for="comment">Комментарий:</label>
-                <textarea id="comment" name="comment"></textarea><br>
+                <textarea id="comment" name="comment" class="comment"></textarea><br>
 
                 <input type="submit" value="Добавить задачу">
             </form>

@@ -1,3 +1,7 @@
+.comment {
+    resize: none;
+}
+
 .main{
     display:flex;
     flex-direction: column;
