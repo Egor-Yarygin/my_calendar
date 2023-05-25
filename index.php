@@ -92,7 +92,7 @@ require 'task_list.php';
                     <div>
                         <table>
                             <thead>
-                                <tr>
+                                <tr class="table-elements">
                                     <th>Тип</th>
                                     <th>Тема</th>
                                     <th>Место</th>
