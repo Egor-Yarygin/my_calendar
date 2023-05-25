@@ -8,9 +8,14 @@
     justify-content: space-between;
     width:auto;
     height:auto;
-    border:0.5vh solid black;
     padding:2vh;
     gap:2vh;
+    align-items: center
+}
+
+.border{
+    border:0.5vh solid black;
+    padding:2vh;
 }
 
 .add-task{
