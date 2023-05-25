@@ -25,31 +25,43 @@ require 'task_list.php';
             <h3>Новая задача</h3>
         </div>
         <div class="add-task">
-            <form action="add_task.php" method="POST">
+            <form class="add-task-form" action="add_task.php" method="POST">
+                <div>
                 <label for="theme">Тема:</label>
-                <input type="text" id="theme" name="theme" required><br>
+                <input type="text" id="theme" name="theme" required>
+                </div>
 
+                <div>
                 <label for="type">Тип:</label>
-                <select id="type" name="type">
+                <select style="font-family: 'Comic Sans MS';" id="type" name="type">
                     <option value="meeting">Встреча</option>
                     <option value="call">Звонок</option>
                     <option value="meeting">Совещание</option>
                     <option value="task">Дело</option>
-                </select><br>
+                </select>
+                </div>
 
+                <div>
                 <label for="location">Место:</label>
-                <input type="text" id="location" name="location"><br>
+                <input type="text" id="location" name="location">
+                </div>
 
+                <div>
                 <label for="datetime">Дата и время:</label>
-                <input type="datetime-local" id="datetime" name="datetime" required><br>
+                <input style="font-family: 'Comic Sans MS';" type="datetime-local" id="datetime" name="datetime" required>
+                </div>
 
+                <div>
                 <label for="duration">Длительность:</label>
-                <input type="text" id="duration" name="duration"><br>
+                <input type="text" id="duration" name="duration">
+                </div>
 
+                <div>
                 <label for="comment">Комментарий:</label>
                 <textarea id="comment" name="comment" class="comment"></textarea><br>
+                <input style="font-family: 'Comic Sans MS'; margin-left:7.7vw;" type="submit" value="Добавить задачу">
+                </div>
 
-                <input type="submit" value="Добавить задачу">
             </form>
         </div>
 </div>
@@ -59,8 +71,8 @@ require 'task_list.php';
             </div>
             <div class="task-list">
                 <!-- Ссылки на различные списки задач -->
-                <select id="task-list">
-                    <option value="current-tasks">Текущие задачи</option>
+                <select style="font-family: 'Comic Sans MS';" id="task-list">
+                    <option  value="current-tasks">Текущие задачи</option>
                     <option value="overdue-tasks">Просроченные задачи</option>
                     <option value="completed-tasks">Выполненные задачи</option>
                     <option value="tasks-on-date">Задачи на конкретную дату</option>
