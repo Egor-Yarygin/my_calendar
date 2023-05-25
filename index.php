@@ -101,9 +101,9 @@ require 'task_list.php';
                                 <div>Комментарий</div>
 </div>
                             </thead>
-                            <tbody id="task-list-body">
+                            <tbody class="tab-elem-main-php" id="task-list-body">
                                 <?php foreach ($tasks as $task): ?>
-                                    <div class="table-elementss">
+                                    <div class="tab-elem-php">
                                         <div>
                                         
                                             <?php echo $task['type']; ?>

@@ -68,9 +68,13 @@ body{
     justify-content: space-around;
 }
 
-.table-elementss{
-    display: flex;
+.tab-elem-main-php{
+    display:flex;
     flex-direction:column;
+}
+
+.tab-elem-main-php{
+    display: flex;
+    flex-direction:row;
     justify-content: space-around;
-    align-items: stretch;
 }
