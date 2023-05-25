@@ -15,15 +15,16 @@ require 'task_list.php';
 
 <body>
     <div class="main">
+        <div class="border">
+        <div class="main-add-task">
         <div>
             <h1>Мой календарь<h1>
         </div>
         <!--Форма для добавления новой задачи-->
         <div>
-            <h2>Новая задача</h2>
+            <h3>Новая задача</h3>
         </div>
         <div class="add-task">
-
             <form action="add_task.php" method="POST">
                 <label for="theme">Тема:</label>
                 <input type="text" id="theme" name="theme" required><br>
@@ -51,9 +52,10 @@ require 'task_list.php';
                 <input type="submit" value="Добавить задачу">
             </form>
         </div>
+</div>
         <div class="main-task">
             <div>
-                <h2>Список задач</h2>
+                <h3>Список задач</h3>
             </div>
             <div class="task-list">
                 <!-- Ссылки на различные списки задач -->
@@ -97,6 +99,7 @@ require 'task_list.php';
                 </table>
             </div>
         </div>
+                        </div>
     </div>
 
     <script>
