@@ -12,25 +12,6 @@ require 'task_list.php';
     <link rel="stylesheet" href="styles.css">
     <title>Менеджер задач</title>
 </head>
-<style>
-    .date-picker {
-        display: inline-block;
-        margin-left: 10px;
-    }
-
-    .date-picker select {
-        font-family: 'Comic Sans MS';
-    }
-
-    .quick-links {
-        margin-top: 10px;
-    }
-
-    .quick-links a {
-        margin-right: 10px;
-    }
-</style>
-
 <body>
     <div class="main">
         <div class="border">
@@ -90,23 +71,23 @@ require 'task_list.php';
                     <h3>Список задач</h3>
                 </div>
                 <div class="task-list">
-                    <div>
+                    <div class="task-list-row">
                         <select style="font-family: 'Comic Sans MS';" id="type" name="type">
                             <option value="current-tasks">Текущие задачи</option>
                             <option value="overdue-tasks">Просроченные задачи</option>
                             <option value="completed-tasks">Выполненные задачи</option>
                             <option value="tasks-on-date">Задачи на конкретную дату</option>
                         </select>
-                    </div>
-                    <div class="date-picker">
-                        <label for="task-date">Выберите дату:</label>
-                        <input type="date" id="task-date" name="task-date">
-                    </div>
-                    <div class="quick-links">
-                        <a href="#">Сегодня</a>
-                        <a href="#">Завтра</a>
-                        <a href="#">На эту неделю</a>
-                        <a href="#">На следующую неделю</a>
+                        <div class="date-picker">
+                            <label for="task-date">Выберите дату:</label>
+                            <input type="date" id="task-date" name="task-date">
+                        </div>
+                        <div class="quick-links">
+                            <a href="#">Сегодня</a>
+                            <a href="#">Завтра</a>
+                            <a href="#">На эту неделю</a>
+                            <a href="#">На следующую неделю</a>
+                        </div>
                     </div>
                     <div>
                         <table>

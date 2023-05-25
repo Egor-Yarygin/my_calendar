@@ -14,7 +14,7 @@ body{
     height:auto;
     padding:2vw;
     gap:2vw;
-    align-items: center
+    align-items: center;
 }
 
 .border{
@@ -28,7 +28,7 @@ body{
 .add-task{
     display:flex;
     flex-direction: column;
-    width:50vw;
+    width:65vw;
     height:auto;
     border:0.3vw solid black;
     padding:2vw;
@@ -42,9 +42,22 @@ body{
 
 .task-list{
     display:flex;
-    flex-direction: row;
-    width:50vw;
+    flex-direction: column;
+    width:65vw;
     height:auto;
     border:0.3vw solid black;
+    padding:2vw;
 }
 
+.task-list-row{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    gap:2vw;
+}
+
+.quick-links{
+    display:flex;
+    flex-direction:row;
+    gap:1vw;
+}
