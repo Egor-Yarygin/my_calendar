@@ -57,7 +57,7 @@ require 'task_list.php';
             </div>
             <div class="task-list">
                 <!-- Ссылки на различные списки задач -->
-                <select id="task-list">
+                <select id="task-list" onchange="changeTaskList()">
                     <option value="current-tasks">Текущие задачи</option>
                     <option value="overdue-tasks">Просроченные задачи</option>
                     <option value="completed-tasks">Выполненные задачи</option>
@@ -72,6 +72,7 @@ require 'task_list.php';
                             <th>Дата и время</th>
                             <th>Длительность</th>
                             <th>Комментарий</th>
+                            <th>Статус</th> <!-- Добавляем новый заголовок для столбца статуса -->
                         </tr>
                     </thead>
                     <tbody>
@@ -83,6 +84,13 @@ require 'task_list.php';
                                 <td><?php echo $task['datetime']; ?></td>
                                 <td><?php echo $task['duration']; ?></td>
                                 <td><?php echo $task['comment']; ?></td>
+                                <td>
+                                    <?php if ($task['completed']): ?>
+                                        <span class="completed">Выполнено</span>
+                                    <?php else: ?>
+                                        <a href="mark_completed.php?id=<?php echo $task['id']; ?>">Пометить выполненным</a>
+                                    <?php endif; ?>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -90,4 +98,15 @@ require 'task_list.php';
             </div>
         </div>
     </div>
+
+    <script>
+    function changeTaskList() {
+        var select = document.getElementById("task-list");
+        var selectedOption = select.options[select.selectedIndex].value;
+
+        // Перенаправление пользователя на соответствующую страницу списка задач
+        window.location.href = selectedOption + ".php";
+    }
+</script>
+
 </body>

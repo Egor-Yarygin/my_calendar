@@ -26,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       location VARCHAR(255),
       datetime DATETIME NOT NULL,
       duration VARCHAR(50),
-      comment TEXT
+      comment TEXT,
+      completed BOOLEAN DEFAULT false
     )";
     $db->exec($createTableSQL);
 
