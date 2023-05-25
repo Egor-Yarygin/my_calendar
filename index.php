@@ -16,94 +16,108 @@ require 'task_list.php';
 <body>
     <div class="main">
         <div class="border">
-        <div class="main-add-task">
-        <div>
-            <h1>Мой календарь<h1>
-        </div>
-        <!--Форма для добавления новой задачи-->
-        <div>
-            <h3>Новая задача</h3>
-        </div>
-        <div class="add-task">
-            <form class="add-task-form" action="add_task.php" method="POST">
+            <div class="main-add-task">
                 <div>
-                <label for="theme">Тема:</label>
-                <input type="text" id="theme" name="theme" required>
+                    <h1>Мой календарь<h1>
                 </div>
-
+                <!--Форма для добавления новой задачи-->
                 <div>
-                <label for="type">Тип:</label>
-                <select style="font-family: 'Comic Sans MS';" id="type" name="type">
-                    <option value="meeting">Встреча</option>
-                    <option value="call">Звонок</option>
-                    <option value="meeting">Совещание</option>
-                    <option value="task">Дело</option>
-                </select>
+                    <h3>Новая задача</h3>
                 </div>
-
-                <div>
-                <label for="location">Место:</label>
-                <input type="text" id="location" name="location">
-                </div>
-
-                <div>
-                <label for="datetime">Дата и время:</label>
-                <input style="font-family: 'Comic Sans MS';" type="datetime-local" id="datetime" name="datetime" required>
-                </div>
-
-                <div>
-                <label for="duration">Длительность:</label>
-                <input type="text" id="duration" name="duration">
-                </div>
-
-                <div>
-                <label for="comment">Комментарий:</label>
-                <textarea id="comment" name="comment" class="comment"></textarea><br>
-                <input style="font-family: 'Comic Sans MS'; margin-left:7.7vw;" type="submit" value="Добавить задачу">
-                </div>
-
-            </form>
-        </div>
-</div>
-        <div class="main-task">
-            <div>
-                <h3>Список задач</h3>
-            </div>
-            <div class="task-list">
-                <!-- Ссылки на различные списки задач -->
-                <select style="font-family: 'Comic Sans MS';" id="task-list">
-                    <option  value="current-tasks">Текущие задачи</option>
-                    <option value="overdue-tasks">Просроченные задачи</option>
-                    <option value="completed-tasks">Выполненные задачи</option>
-                    <option value="tasks-on-date">Задачи на конкретную дату</option>
-                </select>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Тип</th>
-                            <th>Тема</th>
-                            <th>Место</th>
-                            <th>Дата и время</th>
-                            <th>Длительность</th>
-                            <th>Комментарий</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($tasks as $task) : ?>
-                            <tr>
-                                <td><?php echo $task['type']; ?></td>
-                                <td><?php echo $task['theme']; ?></td>
-                                <td><?php echo $task['location']; ?></td>
-                                <td><?php echo $task['datetime']; ?></td>
-                                <td><?php echo $task['duration']; ?></td>
-                                <td><?php echo $task['comment']; ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                <div class="add-task">
+                    <form class="add-task-form" action="add_task.php" method="POST">
+                        <div>
+                            <label for="theme">Тема:</label>
+                            <input type="text" id="theme" name="theme" required>
                         </div>
+
+                        <div>
+                            <label for="type">Тип:</label>
+                            <select style="font-family: 'Comic Sans MS';" id="type" name="type">
+                                <option value="meeting">Встреча</option>
+                                <option value="call">Звонок</option>
+                                <option value="meeting">Совещание</option>
+                                <option value="task">Дело</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="location">Место:</label>
+                            <input type="text" id="location" name="location">
+                        </div>
+
+                        <div>
+                            <label for="datetime">Дата и время:</label>
+                            <input style="font-family: 'Comic Sans MS';" type="datetime-local" id="datetime"
+                                name="datetime" required>
+                        </div>
+
+                        <div>
+                            <label for="duration">Длительность:</label>
+                            <input type="text" id="duration" name="duration">
+                        </div>
+
+                        <div>
+                            <label for="comment">Комментарий:</label>
+                            <textarea id="comment" name="comment" class="comment"></textarea><br>
+                            <input style="font-family: 'Comic Sans MS'; margin-left:7.7vw;" type="submit"
+                                value="Добавить задачу">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="main-task">
+                <div>
+                    <h3>Список задач</h3>
+                </div>
+                <div class="task-list">
+                    <!-- Ссылки на различные списки задач -->
+                    <select style="font-family: 'Comic Sans MS';" id="task-list">
+                        <option value="current-tasks">Текущие задачи</option>
+                        <option value="overdue-tasks">Просроченные задачи</option>
+                        <option value="completed-tasks">Выполненные задачи</option>
+                        <option value="tasks-on-date">Задачи на конкретную дату</option>
+                    </select>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Тип</th>
+                                <th>Тема</th>
+                                <th>Место</th>
+                                <th>Дата и время</th>
+                                <th>Длительность</th>
+                                <th>Комментарий</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($tasks as $task): ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $task['type']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $task['theme']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $task['location']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $task['datetime']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $task['duration']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $task['comment']; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
