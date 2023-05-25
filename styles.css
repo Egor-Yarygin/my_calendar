@@ -73,7 +73,7 @@ body{
     flex-direction:column;
 }
 
-.tab-elem-main-php{
+.tab-elem-php{
     display: flex;
     flex-direction:row;
     justify-content: space-around;
