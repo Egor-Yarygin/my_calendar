@@ -137,6 +137,8 @@ require 'task_list.php';
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 </body>
 
 </html>
