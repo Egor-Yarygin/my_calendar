@@ -67,3 +67,10 @@ body{
     flex-direction:row;
     justify-content: space-around;
 }
+
+.table-elementss{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items: stretch;
+}
