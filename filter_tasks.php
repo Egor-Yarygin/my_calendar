@@ -21,7 +21,7 @@ try {
             $sql .= " WHERE completed = 1";
             break;
         case 'tasks-on-date':
-            $sql .= " WHERE DATE(datetime) = :taskDate";
+            $sql .= " WHERE datetime = :taskDate";
             break;
     }
 
