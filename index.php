@@ -84,10 +84,11 @@ require 'task_list.php';
                             <input type="date" id="task-date" name="task-date">
                         </div>
                         <div class="quick-links">
-                            <a href="#">Сегодня</a>
-                            <a href="#">Завтра</a>
-                            <a href="#">На эту неделю</a>
-                            <a href="#">На следующую неделю</a>
+                        <a href="filter_tasks.php?filterType=tasks-on-date&taskDate=<?php echo date('Y-m-d'); ?>">Сегодня</a>
+<a href="filter_tasks.php?filterType=tasks-on-date&taskDate=<?php echo date('Y-m-d', strtotime('+1 day')); ?>">Завтра</a>
+<a href="filter_tasks.php?filterType=tasks-on-date&taskDate=<?php echo date('Y-m-d', strtotime('this week')); ?>">На эту неделю</a>
+<a href="filter_tasks.php?filterType=tasks-on-date&taskDate=<?php echo date('Y-m-d', strtotime('next week')); ?>">На следующую неделю</a>
+
                         </div>
                     </div>
                     <div>

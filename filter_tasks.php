@@ -58,4 +58,5 @@ try {
 } catch (PDOException $e) {
     echo 'Ошибка: ' . $e->getMessage();
 }
-?>
+?> 
+
