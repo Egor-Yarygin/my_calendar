@@ -103,7 +103,7 @@ require 'task_list.php';
                             </thead>
                             <tbody id="task-list-body">
                                 <?php foreach ($tasks as $task): ?>
-                                    <tr>
+                                    <tr class="table-elements">
                                         <td>
                                             <?php echo $task['type']; ?>
                                         </td>
