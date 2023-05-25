@@ -42,10 +42,9 @@ body{
 
 .task-list{
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     width:50vw;
     height:auto;
     border:0.3vw solid black;
-    padding:2vw;
 }
 
