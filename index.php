@@ -33,10 +33,10 @@ require 'task_list.php';
                         <div>
                             <label for="type">Тип:</label>
                             <select style="font-family: 'Comic Sans MS';" id="type" name="type">
-                                <option value="meeting">Встреча</option>
-                                <option value="call">Звонок</option>
-                                <option value="meeting">Совещание</option>
-                                <option value="task">Дело</option>
+                                <option value="Встреча">Встреча</option>
+                                <option value="Звонок">Звонок</option>
+                                <option value="Совещание">Совещание</option>
+                                <option value="Дело">Дело</option>
                             </select>
                         </div>
 
@@ -106,10 +106,10 @@ require 'task_list.php';
                                 <?php foreach ($tasks as $task): ?>
                                     <tr>
                                         <td>
-                                            <?php echo $task['type']; ?>
+                                            <?php echo $task['type'] ?>
                                         </td>
                                         <td>
-                                            <?php echo $task['theme']; ?>
+                                            <?php echo "<a href='./editing.php'>".$task['theme']."</a>" ?>
                                         </td>
                                         <td>
                                             <?php echo $task['location']; ?>
