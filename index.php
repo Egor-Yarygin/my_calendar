@@ -12,7 +12,24 @@ require 'task_list.php';
     <link rel="stylesheet" href="styles.css">
     <title>Менеджер задач</title>
 </head>
+<style>
+    .date-picker {
+        display: inline-block;
+        margin-left: 10px;
+    }
 
+    .date-picker select {
+        font-family: 'Comic Sans MS';
+    }
+
+    .quick-links {
+        margin-top: 10px;
+    }
+
+    .quick-links a {
+        margin-right: 10px;
+    }
+</style>
 <body>
     <div class="main">
         <div class="border">
@@ -68,66 +85,52 @@ require 'task_list.php';
                 </div>
             </div>
             <div class="main-task">
-                <div>
-                    <h3>Список задач</h3>
-                </div>
-                <div class="task-list">
-                    <!-- Ссылки на различные списки задач -->
-                    <select style="font-family: 'Comic Sans MS';" id="task-list">
-                        <option value="current-tasks">Текущие задачи</option>
-                        <option value="overdue-tasks">Просроченные задачи</option>
-                        <option value="completed-tasks">Выполненные задачи</option>
-                        <option value="tasks-on-date">Задачи на конкретную дату</option>
-                    </select>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Тип</th>
-                                <th>Тема</th>
-                                <th>Место</th>
-                                <th>Дата и время</th>
-                                <th>Длительность</th>
-                                <th>Комментарий</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($tasks as $task): ?>
-                                <tr>
-                                    <td>
-                                        <?php echo $task['type']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $task['theme']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $task['location']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $task['datetime']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $task['duration']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $task['comment']; ?>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+    <div>
+        <h3>Список задач</h3>
     </div>
+    <div class="task-list">
+        <select style="font-family: 'Comic Sans MS';" id="type" name="type">
+            <option value="current-tasks">Текущие задачи</option>
+            <option value="overdue-tasks">Просроченные задачи</option>
+            <option value="completed-tasks">Выполненные задачи</option>
+            <option value="tasks-on-date">Задачи на конкретную дату</option>
+        </select>
+        <div class="date-picker">
+            <label for="task-date">Выберите дату:</label>
+            <input type="date" id="task-date" name="task-date">
+        </div>
 
-    <script>
-    function changeTaskList() {
-        var select = document.getElementById("task-list");
-        var selectedOption = select.options[select.selectedIndex].value;
-
-        // Перенаправление пользователя на соответствующую страницу списка задач
-        window.location.href = selectedOption + ".php";
-    }
-</script>
-
+        <div class="quick-links">
+            <a href="#">Сегодня</a>
+            <a href="#">Завтра</a>
+            <a href="#">На эту неделю</a>
+            <a href="#">На следующую неделю</a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Тип</th>
+                    <th>Тема</th>
+                    <th>Место</th>
+                    <th>Дата и время</th>
+                    <th>Длительность</th>
+                    <th>Комментарий</th>
+                </tr>
+            </thead>
+            <tbody id="task-list-body">
+                <?php foreach ($tasks as $task) : ?>
+                    <tr>
+                        <td><?php echo $task['type']; ?></td>
+                        <td><?php echo $task['theme']; ?></td>
+                        <td><?php echo $task['location']; ?></td>
+                        <td><?php echo $task['datetime']; ?></td>
+                        <td><?php echo $task['duration']; ?></td>
+                        <td><?php echo $task['comment']; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
+</html>
