@@ -65,5 +65,5 @@ body{
 .table-elements{
     display: flex;
     flex-direction:row;
-    gap:6.5vw;
+    justify-content: space-around;
 }
