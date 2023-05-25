@@ -62,19 +62,3 @@ body{
     gap:1vw;
 }
 
-.table-elements{
-    display: flex;
-    flex-direction:row;
-    justify-content: space-around;
-}
-
-.tab-elem-main-php{
-    display:flex;
-    flex-direction:column;
-}
-
-.tab-elem-php{
-    display: flex;
-    flex-direction:row;
-    justify-content: space-around;
-}

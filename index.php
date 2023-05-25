@@ -12,7 +12,6 @@ require 'task_list.php';
     <link rel="stylesheet" href="styles.css">
     <title>Менеджер задач</title>
 </head>
-
 <body>
     <div class="main">
         <div class="border">
@@ -93,51 +92,39 @@ require 'task_list.php';
                     <div>
                         <table>
                             <thead>
-                                <div class="table-elements">
-                                    <div>Тип</div>
-                                    <div>Тема</div>
-                                    <div>Место</div>
-                                    <div>Дата и время</div>
-                                    <div>Длительность</div>
-                                    <div>Комментарий</div>
-                                </div>
+                                <tr>
+                                    <th>Тип</th>
+                                    <th>Тема</th>
+                                    <th>Место</th>
+                                    <th>Дата и время</th>
+                                    <th>Длительность</th>
+                                    <th>Комментарий</th>
+                                </tr>
                             </thead>
-                            <div class="tab-elem-main-php" id="task-list-body">
+                            <tbody id="task-list-body">
                                 <?php foreach ($tasks as $task): ?>
-                                    <div class="tab-elem-php">
-                                        <div>
-
+                                    <tr>
+                                        <td>
                                             <?php echo $task['type']; ?>
-
-                                        </div>
-                                        <div>
-
+                                        </td>
+                                        <td>
                                             <?php echo $task['theme']; ?>
-
-                                        </div>
-                                        <div>
-
+                                        </td>
+                                        <td>
                                             <?php echo $task['location']; ?>
-
-                                        </div>
-                                        <div>
-
+                                        </td>
+                                        <td>
                                             <?php echo $task['datetime']; ?>
-
-                                        </div>
-                                        <div>
-
+                                        </td>
+                                        <td>
                                             <?php echo $task['duration']; ?>
-
-                                        </div>
-                                        <div>
-
+                                        </td>
+                                        <td>
                                             <?php echo $task['comment']; ?>
-
-                                        </div>
-
-                                    <?php endforeach; ?>
-                                </div>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
                         </table>
                     </div>
                 </div>
