@@ -99,6 +99,7 @@ require 'task_list.php';
                                     <th>Дата и время</th>
                                     <th>Длительность</th>
                                     <th>Комментарий</th>
+                                    <th>Статус</th>
                                 </tr>
                             </thead>
                             <tbody id="task-list-body">
@@ -121,6 +122,13 @@ require 'task_list.php';
                                         </td>
                                         <td>
                                             <?php echo $task['comment']; ?>
+                                        </td>
+                                        <td>
+                                            <?php if ($task['completed']): ?>
+                                                <span class="completed">Выполнено</span>
+                                            <?php else: ?>
+                                                <a href="mark_completed.php?id=<?php echo $task['id']; ?>">Пометить выполненным</a>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
