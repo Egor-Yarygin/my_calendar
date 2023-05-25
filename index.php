@@ -12,6 +12,7 @@ require 'task_list.php';
     <link rel="stylesheet" href="styles.css">
     <title>Менеджер задач</title>
 </head>
+
 <body>
     <div class="main">
         <div class="border">
@@ -72,7 +73,7 @@ require 'task_list.php';
                 </div>
                 <div class="task-list">
                     <div class="task-list-row">
-                        <select style="font-family: 'Comic Sans MS';" id="type" name="type">
+                        <select style="font-family: 'Comic Sans MS';" id="filter-type" name="filter-type">
                             <option value="current-tasks">Текущие задачи</option>
                             <option value="overdue-tasks">Просроченные задачи</option>
                             <option value="completed-tasks">Выполненные задачи</option>
@@ -127,12 +128,32 @@ require 'task_list.php';
                                             <?php if ($task['completed']): ?>
                                                 <span class="completed">Выполнено</span>
                                             <?php else: ?>
-                                                <a href="mark_completed.php?id=<?php echo $task['id']; ?>">Пометить выполненным</a>
+                                                <a href="mark_completed.php?id=<?php echo $task['id']; ?>">Пометить
+                                                    выполненным</a>
                                             <?php endif; ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
+                            <script>
+                                function filterTasks() {
+                                    var filterType = document.getElementById("filter-type").value;
+                                    var taskDate = document.getElementById("task-date").value;
+
+                                    var xhr = new XMLHttpRequest();
+                                    xhr.onreadystatechange = function() {
+                                        if (xhr.readyState === 4 && xhr.status === 200) {
+                                            document.getElementById("task-list-body").innerHTML = xhr.responseText;
+                                        }
+                                    };
+
+                                    xhr.open("GET", "filter_tasks.php?filterType=" + filterType + "&taskDate=" + taskDate, true);
+                                    xhr.send();
+                                }
+
+                                document.getElementById("filter-type").addEventListener("change", filterTasks);
+                                document.getElementById("task-date").addEventListener("change", filterTasks);
+                        </script>
                         </table>
                     </div>
                 </div>
