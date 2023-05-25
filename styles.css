@@ -62,6 +62,7 @@ th {
     height:auto;
     border:0.3vw solid black;
     padding:2vw;
+    gap:2vw;
 }
 
 .task-list-row{
