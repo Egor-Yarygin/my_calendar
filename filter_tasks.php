@@ -55,7 +55,7 @@ try {
     foreach ($tasks as $task) {
         echo '<tr>';
         echo '<td>' . $task['type'] . '</td>';
-        echo '<td>' . $task['theme'] . '</td>';
+        echo '<td>' . "<a href='editing.php?id=".$task['id']."'>".$task['theme']."</a>" . '</td>';
         echo '<td>' . $task['location'] . '</td>';
         echo '<td>' . $task['datetime'] . '</td>';
         echo '<td>' . $task['duration'] . '</td>';

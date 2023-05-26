@@ -69,6 +69,7 @@ if (isset($_GET['id'])) {
                             <label for="comment">Комментарий:</label>
                             <textarea id="comment" name="comment" class="comment"><?php echo $task['comment']; ?></textarea><br>
                             <input type="submit" value="Принять изменения">
+                            <input style="font-color:white; background-color:red;"  type="submit" value="Удалить задачу">
                         </div>
                     </form>
                 </div>
