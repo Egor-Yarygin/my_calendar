@@ -21,7 +21,7 @@ try {
             $sql .= " WHERE completed = 1";
             break;
         case 'tasks-on-date':
-            $sql .= " WHERE datetime = :taskDate";
+            $sql .= " WHERE DATE(datetime) = STR_TO_DATE(:taskDate, '%d.%m.%Y')";
             break;
     }
 
@@ -34,7 +34,7 @@ try {
     } else {
         $stmt = $db->prepare($sql);
     }
-    
+
     $stmt->execute();
     $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

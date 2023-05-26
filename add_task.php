@@ -42,8 +42,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Перенаправление пользователя на главную страницу или страницу со списком задач
     header('Location: index.php');
     exit();
+
   } catch (PDOException $e) {
     // Обработка ошибки подключения к базе данных
     echo 'Ошибка: ' . $e->getMessage();
   }
+
+  
 }
+
+?>

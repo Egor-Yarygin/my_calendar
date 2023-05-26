@@ -84,10 +84,10 @@ require 'task_list.php';
                             <input type="date" id="task-date" name="task-date">
                         </div>
                         <div class="quick-links">
-                            <a href="#">Сегодня</a>
-                            <a href="#">Завтра</a>
-                            <a href="#">На эту неделю</a>
-                            <a href="#">На следующую неделю</a>
+                            <a href="update_task.php?period=today">Сегодня</a>
+                            <a href="update_task.php?period=tomorrow">Завтра</a>
+                            <a href="update_task.php?period=this_week">На эту неделю</a>
+                            <a href="update_task.php?period=next_week">На следующую неделю</a>
                         </div>
                     </div>
                     <div>
@@ -110,7 +110,7 @@ require 'task_list.php';
                                             <?php echo $task['type'] ?>
                                         </td>
                                         <td>
-                                            <?php echo "<a href='./editing.php'>".$task['theme']."</a>" ?>
+                                            <?php echo "<a href='editing.php?id=".$task['id']."'>".$task['theme']."</a>" ?>
                                         </td>
                                         <td>
                                             <?php echo $task['location']; ?>
