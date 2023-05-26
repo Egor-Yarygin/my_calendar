@@ -20,7 +20,6 @@ require 'task_list.php';
                 <div>
                     <h1>Мой календарь<h1>
                 </div>
-                <!--Форма для добавления новой задачи-->
                 <div>
                     <h3>Новая задача</h3>
                 </div>
@@ -60,8 +59,7 @@ require 'task_list.php';
                         <div>
                             <label for="comment">Комментарий:</label>
                             <textarea id="comment" name="comment" class="comment"></textarea><br>
-                            <input style="font-family: 'Comic Sans MS'; margin-left:7.7vw;" type="submit"
-                                value="Добавить задачу">
+                            <input type="submit" value="Добавить задачу">
                         </div>
 
                     </form>
@@ -84,10 +82,10 @@ require 'task_list.php';
                             <input type="date" id="task-date" name="task-date">
                         </div>
                         <div class="quick-links">
-                            <a href="update_task.php?period=today">Сегодня</a>
-                            <a href="update_task.php?period=tomorrow">Завтра</a>
-                            <a href="update_task.php?period=this_week">На эту неделю</a>
-                            <a href="update_task.php?period=next_week">На следующую неделю</a>
+                            <button style="font-family: 'Comic Sans MS';" onclick="filterTasksByPeriod('today')">Сегодня</button>
+                            <button style="font-family: 'Comic Sans MS';" onclick="filterTasksByPeriod('tomorrow')">Завтра</button>
+                            <button style="font-family: 'Comic Sans MS';" onclick="filterTasksByPeriod('this_week')">На эту неделю</button>
+                            <button style="font-family: 'Comic Sans MS';" onclick="filterTasksByPeriod('next_week')">На следующую неделю</button>
                         </div>
                     </div>
                     <div>
@@ -135,25 +133,8 @@ require 'task_list.php';
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
-                            <script>
-                                function filterTasks() {
-                                    var filterType = document.getElementById("filter-type").value;
-                                    var taskDate = document.getElementById("task-date").value;
-
-                                    var xhr = new XMLHttpRequest();
-                                    xhr.onreadystatechange = function() {
-                                        if (xhr.readyState === 4 && xhr.status === 200) {
-                                            document.getElementById("task-list-body").innerHTML = xhr.responseText;
-                                        }
-                                    };
-
-                                    xhr.open("GET", "filter_tasks.php?filterType=" + filterType + "&taskDate=" + taskDate, true);
-                                    xhr.send();
-                                }
-
-                                document.getElementById("filter-type").addEventListener("change", filterTasks);
-                                document.getElementById("task-date").addEventListener("change", filterTasks);
-                        </script>
+                            <script src="filter_tasks.js"></script>
+                            <script src="filter_tasks_period.js"></script>
                         </table>
                     </div>
                 </div>

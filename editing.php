@@ -1,17 +1,14 @@
 <?php
 require 'task_list.php';
 
-// Проверяем, если передан идентификатор задачи через URL
 if (isset($_GET['id'])) {
     $taskId = $_GET['id'];
 
-    // Получаем информацию о задаче из базы данных по идентификатору
     $query = $db->prepare("SELECT * FROM tasks WHERE id = :taskId");
     $query->bindParam(':taskId', $taskId, PDO::PARAM_INT);
     $query->execute();
     $task = $query->fetch(PDO::FETCH_ASSOC);
 } else {
-    // Если идентификатор задачи не передан, перенаправляем обратно на страницу со списком задач
     header("Location: index.php");
     exit();
 }
@@ -71,7 +68,7 @@ if (isset($_GET['id'])) {
                         <div>
                             <label for="comment">Комментарий:</label>
                             <textarea id="comment" name="comment" class="comment"><?php echo $task['comment']; ?></textarea><br>
-                            <input style="font-family: 'Comic Sans MS'; margin-left:7.7vw;" type="submit" value="Принять изменения">
+                            <input type="submit" value="Принять изменения">
                         </div>
                     </form>
                 </div>

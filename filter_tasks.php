@@ -1,8 +1,14 @@
 <?php
-require_once 'config.php';
+require 'config.php';
+
 
 $filterType = $_GET['filterType'];
-$taskDate = $_GET['taskDate'];
+$taskDate = isset($_GET['taskDate']) ? $_GET['taskDate'] : '';
+
+$taskDateFormatted = '';
+if (!empty($taskDate)) {
+    $taskDateFormatted = date('Y-m-d', strtotime($taskDate));
+}
 
 try {
     $dsn = "mysql:host=$host;dbname=$dbname";
@@ -12,7 +18,8 @@ try {
     ]);
 
     $sql = "SELECT * FROM tasks";
-
+    $params = [];
+    
     switch ($filterType) {
         case 'overdue-tasks':
             $sql .= " WHERE datetime < NOW() AND completed = 0";
@@ -21,21 +28,28 @@ try {
             $sql .= " WHERE completed = 1";
             break;
         case 'tasks-on-date':
-            $sql .= " WHERE DATE(datetime) = STR_TO_DATE(:taskDate, '%d.%m.%Y')";
+            if (!empty($taskDate)) {
+                $sql .= " WHERE DATE(datetime) = :taskDate";
+                $params['taskDate'] = $taskDateFormatted;
+            }
+            break;
+        case 'today':
+            $sql .= " WHERE DATE(datetime) = CURDATE()";
+            break;
+        case 'tomorrow':
+            $sql .= " WHERE DATE(datetime) = CURDATE() + INTERVAL 1 DAY";
+            break;
+        case 'this_week':
+            $sql .= " WHERE WEEK(datetime) = WEEK(NOW())";
+            break;
+        case 'next_week':
+            $sql .= " WHERE WEEK(datetime) = WEEK(NOW()) + 1";
             break;
     }
-
+    
     $stmt = $db->prepare($sql);
-
-    if ($filterType === 'tasks-on-date' && !empty($taskDate)) {
-        $sql .= " AND DATE(datetime) = :taskDate";
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(':taskDate', $taskDate);
-    } else {
-        $stmt = $db->prepare($sql);
-    }
-
-    $stmt->execute();
+    $stmt->execute($params);
+    
     $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($tasks as $task) {
@@ -59,3 +73,5 @@ try {
     echo 'Ошибка: ' . $e->getMessage();
 }
 ?>
+
+

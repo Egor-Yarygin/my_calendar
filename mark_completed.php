@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['id'])) {
@@ -16,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $stmt = $db->prepare($sql);
             $stmt->execute([$taskId]);
 
-            // Перенаправление пользователя на главную страницу
             header('Location: index.php');
             exit();
         } catch (PDOException $e) {
