@@ -61,7 +61,6 @@ require 'task_list.php';
                             <textarea id="comment" name="comment" class="comment"></textarea><br>
                             <input type="submit" value="Добавить задачу">
                         </div>
-
                     </form>
                 </div>
             </div>
