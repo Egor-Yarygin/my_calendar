@@ -21,6 +21,12 @@ try {
     $params = [];
     
     switch ($filterType) {
+      	case 'all-tasks':
+            $sql .= "";
+            break;
+      	case 'current-tasks':
+            $sql .= " WHERE datetime >= NOW() AND completed = 0";
+            break;
         case 'overdue-tasks':
             $sql .= " WHERE datetime < NOW() AND completed = 0";
             break;
@@ -40,10 +46,10 @@ try {
             $sql .= " WHERE DATE(datetime) = CURDATE() + INTERVAL 1 DAY";
             break;
         case 'this_week':
-            $sql .= " WHERE WEEK(datetime) = WEEK(NOW())";
+            $sql .= " WHERE WEEK(datetime, 1) = WEEK(NOW(), 1)";
             break;
         case 'next_week':
-            $sql .= " WHERE WEEK(datetime) = WEEK(NOW()) + 1";
+            $sql .= " WHERE WEEK(datetime, 1) = WEEK(NOW(), 1) + 1";
             break;
     }
     
@@ -73,5 +79,3 @@ try {
     echo 'Ошибка: ' . $e->getMessage();
 }
 ?>
-
-

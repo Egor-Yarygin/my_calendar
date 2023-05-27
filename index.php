@@ -72,6 +72,7 @@ require 'task_list.php';
                     <div class="task-list-row">
                         <select style="font-family: 'Comic Sans MS';" id="filter-type" name="filter-type">
                             <option selected disabled>Выберите фильтр</option>
+                          	<option value="all-tasks">Все задачи</option>
                             <option value="current-tasks">Текущие задачи</option>
                             <option value="overdue-tasks">Просроченные задачи</option>
                             <option value="completed-tasks">Выполненные задачи</option>
